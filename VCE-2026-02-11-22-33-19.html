@@ -1,0 +1,2359 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LIFJARZSTORE.ID - Official Fish It Market</title>
+  <style>
+
+    /* Reset & dasar */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
+
+    body {
+      background: #0c111c;
+      color: #eee;
+      min-height: 100vh
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #131a2a;
+      position: sticky;
+      top: 0;
+      z-index: 1000
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #f2c94c
+    }
+
+    .logo img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%
+    }
+
+    .btn-topup {
+      background: #f2c94c;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer
+    }
+
+    .admin-status {
+      text-align: center;
+      font-size: .85rem;
+      color: #36f4b8;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .admin-inline {
+      font-size: .7rem;
+      color: #36f4b8;
+      font-weight: 600;
+    }
+
+    /* Banner */
+    .banner {
+      margin: 15px 20px;
+      border-radius: 15px;
+      position: relative;
+      overflow: hidden;
+      height: 120px;
+    }
+
+    .banner video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .banner-text h1 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      background: linear-gradient(90deg, #fff, #f2c94c, #36f4b8, #fff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: glowText 3s linear infinite;
+    }
+
+    .banner-text span {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    @keyframes glowText {
+      0% {
+        filter: drop-shadow(0 0 4px #fff)
+      }
+
+      50% {
+        filter: drop-shadow(0 0 12px #f2c94c)
+      }
+
+      100% {
+        filter: drop-shadow(0 0 4px #fff)
+      }
+    }
+
+    /*BAHASA*/
+    .lang-switch {
+      background: #131a2a;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #f2c94c;
+      border: none;
+      position: relative;
+      z-index: 20001;
+      /* lebih tinggi dari popup */
+    }
+
+
+    .lang-popup {
+      display: none;
+      position: fixed;
+      /* PENTING */
+      top: 70px;
+      right: 20px;
+      background: #131a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, .6);
+      z-index: 20000;
+    }
+
+    .lang-popup div {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .lang-popup div:hover {
+      background: #1f2b45;
+    }
+
+    .lang-switch {
+      position: relative;
+      z-index: 10001;
+      margin-right: 15px;
+      /* lebih tinggi dari modal */
+    }
+
+    .lang-popup div {
+  color: #ffffff;
+}
+
+    .order-modal {
+      pointer-events: none;
+    }
+
+    .order-modal.active {
+      pointer-events: auto;
+    }
+
+    .side-menu {
+      z-index: 10000;
+    }
+
+    /*Slogan*/
+    .info-alert {
+      background: #3095de;
+      margin: 0 20px 20px;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 700;
+      overflow: hidden;
+    }
+
+    .glow-text {
+      color: #fff;
+      animation: glowTextSlogan 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowTextSlogan {
+      from {
+        text-shadow: 0 0 6px #f2c94c, 0 0 12px #f2c94c;
+      }
+
+      to {
+        text-shadow: 0 0 14px #f2994a, 0 0 26px #f2994a;
+      }
+    }
+
+    .fire {
+      display: inline-block;
+      animation: fireWave .7s infinite ease-in-out alternate;
+    }
+
+    @keyframes fireWave {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-4px) scale(1.2);
+      }
+
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /*TRUST BOX*/
+    .info-alert {
+      background: #3095de;
+      margin: 0 20px 20px;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600
+    }
+
+    main {
+      margin: 0 20px 30px
+    }
+
+    .trust-box {
+      margin: -10px 20px 20px;
+      background: #131a2a;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      font-size: .9rem;
+      line-height: 1.7;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .trust-box div {
+      color: #36f4b8;
+      font-weight: 600;
+    }
+
+    .trust-box span {
+      display: inline-block;
+      transition: all .4s ease;
+    }
+
+    .emoji-anim {
+      transform: translateY(-4px);
+      opacity: 0;
+    }
+
+    /* Cara Order */
+    .cara-order {
+      background: #131a2a;
+      margin: 0 20px 20px;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(16, 32, 64, 0.7);
+    }
+
+    .cara-order h2 {
+      color: #f2c94c;
+      margin-bottom: 10px
+    }
+
+    .cara-order p {
+      line-height: 1.5
+    }
+
+    /* Paket */
+    .paket-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f2c94c;
+      margin-bottom: 25px;
+      margin-top: 25px;
+    }
+
+    .paket-title img {
+      width: 30px
+    }
+
+    .paket-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px
+    }
+
+    .paket-item {
+      background: linear-gradient(145deg, #0a1a3a, #112850);
+      border-radius: 15px;
+      padding: 15px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: .3s
+    }
+
+    .paket-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(242, 201, 76, .7)
+    }
+
+    .paket-icon img {
+      width: 40px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 3px #f2c94c)
+    }
+
+    .paket-name {
+      font-weight: 700
+    }
+
+    .paket-price {
+      color: #f2c94c;
+      font-size: .9rem
+    }
+
+    .badge-fake {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: linear-gradient(45deg, #ff0000, #ff5e5e);
+      color: #fff;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 6px;
+      font-weight: 700;
+      box-shadow: 0 0 8px rgba(255, 0, 0, .6);
+    }
+
+    .fake-old {
+      text-decoration: line-through;
+      color: #bbb;
+      font-size: 12px;
+      display: block;
+    }
+
+    .boost-title {
+      color: #00ff88;
+      font-weight: 800;
+    }
+
+    .best-glow {
+      color: #ffd700;
+      text-shadow:
+        0 0 5px #ffd700,
+        0 0 12px #ffb700,
+        0 0 25px rgba(255, 215, 0, .8);
+      animation: goldGlow 2s infinite alternate;
+    }
+
+    @keyframes goldGlow {
+      from {
+        text-shadow:
+          0 0 5px #ffd700,
+          0 0 10px #ffb700;
+      }
+
+      to {
+        text-shadow:
+          0 0 12px #ffd700,
+          0 0 30px rgba(255, 200, 0, .9);
+      }
+    }
+
+
+    .boom {
+      display: inline-block;
+      animation: boomPop 1s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    @keyframes boomPop {
+      0% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0px #ffae00);
+      }
+
+      50% {
+        transform: scale(1.25) rotate(-8deg);
+        filter: drop-shadow(0 0 10px #ffae00);
+      }
+
+      100% {
+        transform: scale(1) rotate(0deg);
+        filter: drop-shadow(0 0 0px #ffae00);
+      }
+    }
+
+    /*IKAN SECRET*/
+    .ikan-secret-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    @media(max-width:1200px) {
+      .ikan-secret-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width:700px) {
+      .ikan-secret-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /*Robux Login*/
+    .robux-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    @media(max-width:1200px) {
+      .robux-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
+
+    @media(max-width:700px) {
+      .robux-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .robux-subtitle {
+      margin: 25px 0 10px;
+      font-weight: 700;
+      color: #f2c94c;
+      font-size: 1.1rem;
+    }
+
+    .robux-note {
+      font-size: .8rem;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    /*Robux Gamepass*/
+    .robux-grid-7 {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 12px;
+    }
+
+    @media(max-width:1200px) {
+      .robux-grid-7 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media(max-width:700px) {
+      .robux-grid-7 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /*Robux Premium*/
+    .robux-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    @media(max-width:700px) {
+      .robux-grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Testimoni */
+    .testimoni {
+      margin: 20px 20px 30px;
+      background: #131a2a;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(16, 32, 64, 0.7);
+    }
+
+    .testimoni h2 {
+      color: #f2c94c;
+      margin-bottom: 10px
+    }
+
+    .rating {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+
+    .rating span {
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .comment-box textarea {
+      width: 100%;
+      height: 80px;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      resize: none;
+      margin-top: 10px;
+    }
+
+    .comment-box button {
+      margin-top: 10px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #f2c94c;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .comment-list {
+      margin-top: 15px;
+      border-top: 1px solid #2a3a5a;
+      padding-top: 10px;
+    }
+
+    .comment-item {
+      border-bottom: 1px solid #2a3a5a;
+      padding: 10px 0;
+    }
+
+    .stars-gold {
+      color: #f2c94c;
+      font-weight: 700;
+    }
+
+    .avg-rating {
+      color: #f2c94c;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .comment-item {
+      word-break: break-word;
+    }
+
+    .comment-item:last-child {
+      border-bottom: none
+    }
+
+    .comment-item .stars {
+      color: #f2c94c
+    }
+
+    /* Tentang Kami */
+    .tentang {
+      margin: 0 20px 30px;
+      background: #131a2a;
+      border-radius: 15px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(16, 32, 64, 0.7);
+    }
+
+    .tentang h2 {
+      color: #f2c94c;
+      margin-bottom: 10px
+    }
+
+    .tentang p {
+      line-height: 1.5
+    }
+
+    .tentang .bold {
+      font-weight: 700
+    }
+
+    /* Modal Order */
+    .order-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      justify-content: center;
+      align-items: center;
+      z-index: 9999
+    }
+
+    .order-box {
+      background: #131a2a;
+      padding: 20px;
+      border-radius: 15px;
+      width: 300px;
+      text-align: center
+    }
+
+    .order-box input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none
+    }
+
+    .order-btn {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #f2c94c;
+      font-weight: 700;
+      cursor: pointer
+    }
+
+    .cancel-btn {
+      margin-top: 8px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: crimson;
+      color: #fff;
+      cursor: pointer
+    }
+
+    .order-btn.loading {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    .order-modal {
+      will-change: opacity, transform;
+    }
+
+    /* ===== ORDER MODAL CINEMATIC ===== */
+
+    #orderModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      z-index: 9999;
+    }
+
+    #orderModal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #orderModal .order-box {
+      background: var(--card-bg, #131a2a);
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 18px;
+
+      transform: translateY(40px) scale(0.95);
+      opacity: 0;
+
+      transition: transform 0.35s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.25s ease;
+    }
+
+    #orderModal.active .order-box {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    @keyframes blinkEye {
+      0% {
+        transform: scaleY(1);
+      }
+
+      40% {
+        transform: scaleY(0.1);
+      }
+
+      60% {
+        transform: scaleY(0.1);
+      }
+
+      100% {
+        transform: scaleY(1);
+      }
+    }
+
+    .blink {
+      animation: blinkEye 0.25s ease;
+      transform-origin: center;
+    }
+
+    #passwordWrapper {
+      position: relative;
+    }
+
+    #passwordWrapper input {
+      padding-right: 40px;
+      /* biar gak ketabrak icon */
+    }
+
+    #eyeIcon {
+      position: absolute;
+      right: 12px;
+      top: 60%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      height: 100%;
+    }
+
+    /* Menu Popup Samping */
+    .side-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+      justify-content: flex-end
+    }
+
+    .side-menu-box {
+      width: 260px;
+      height: 100%;
+      background: #0b1220;
+      padding: 20px
+    }
+
+    .side-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px
+    }
+
+    .close-menu {
+      background: crimson;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 8px;
+      cursor: pointer
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0
+    }
+
+    .menu-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #2a3a5a;
+      cursor: pointer
+    }
+
+    /* ===== LIGHT MODE ===== */
+
+    body.light-mode {
+      background: #f5f7fa;
+      color: #1c1c1c;
+    }
+
+    body.light-mode header {
+      background: #ffffff;
+    }
+
+    body.light-mode .banner-text h1 {
+      filter: none;
+    }
+
+    body.light-mode .info-alert {
+      background: #e3f2fd;
+      color: #1c1c1c;
+    }
+
+    body.light-mode .trust-box,
+    body.light-mode .cara-order,
+    body.light-mode .testimoni,
+    body.light-mode .tentang,
+    body.light-mode .order-box,
+    body.light-mode .side-menu-box {
+      background: #ffffff;
+      color: #1c1c1c;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-mode .paket-item {
+      background: #ffffff;
+      color: #1c1c1c;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light-mode .paket-price {
+      color: #d4a017;
+    }
+
+    body,
+    header,
+    .paket-item,
+    .trust-box,
+    .cara-order,
+    .testimoni,
+    .tentang,
+    .order-box {
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .order-box {
+      background: #0f1c33;
+      color: #ffffff;
+    }
+
+    .order-box p,
+    .order-box span,
+    .order-box b,
+    .order-box label {
+      color: #f1f5ff;
+    }
+
+    /* Smooth slide Menu */
+    .side-menu-box {
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+
+    #sideMenu.active .side-menu-box {
+      transform: translateX(0);
+    }
+
+    /* Overlay fade */
+    #sideMenu {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #sideMenu.active {
+      opacity: 1;
+    }
+
+    /* Cinematic blur */
+    body.menu-open main,
+    body.menu-open header,
+    body.menu-open section {
+      filter: blur(2px);
+      transform: scale(0.98);
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    main,
+    header,
+    section {
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    /* Menu Popup Pembelian*/
+    .popup-info {
+      text-align: left;
+      margin-top: 10px;
+      font-size: .85rem;
+      line-height: 1.6;
+      background: #0c1526;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .popup-info small {
+      display: block;
+      margin-top: 6px;
+      color: #bbb;
+    }
+
+    /* Responsive */
+    @media (max-width:480px) {
+      .banner {
+        height: 110px
+      }
+
+      .banner-text h1 {
+        font-size: 1.2rem
+      }
+
+      .banner-text span {
+        font-size: .9rem
+      }
+    }
+
+    /* JARAK ANTAR PRODUK */
+    section div:has(.product-card) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    /* NAFAS DI DALAM KARTU */
+    .product-card {
+      padding: 18px 16px;
+    }
+
+    /* MATIKAN TAP HIGHLIGHT ANDROID (GLOBAL) */
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Hilangkan outline focus biru */
+    *:focus {
+      outline: none;
+    }
+
+    /* Khusus elemen interaktif biar clean */
+    button,
+    a,
+    div,
+    span {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /*SVG*/
+    a {
+      cursor: pointer;
+    }
+
+    a svg {
+      pointer-events: none;
+    }
+
+    /* ===== GLOBAL PRESS EFFECT ===== */
+    button,
+    .lang-switch,
+    .menu-list li,
+    a,
+    svg,
+    .side-menu-box button,
+    .comment-box button {
+      transition: transform 0.12s ease,
+        opacity 0.12s ease,
+        box-shadow 0.12s ease;
+    }
+
+    /* Efek ditekan */
+    button:active,
+    .lang-switch:active,
+    .menu-list li:active,
+    a:active,
+    .side-menu-box button:active,
+    .comment-box button:active {
+
+      transform: scale(0.94);
+      opacity: 0.75;
+    }
+
+    /* FIX popup info biar kebaca di light mode */
+body.light-mode .popup-info {
+  background: #f1f3f7;
+  color: #111;
+}
+
+body.light-mode .popup-info small {
+  color: #444;
+}
+
+/* Biar nama produk di popup tetep kuning kayak UI */
+#productName {
+  color: #f2c94c;
+  font-weight: 700;
+}
+
+/* Khusus light mode biar nggak ketiban warna lain */
+body.light-mode #productName {
+  color: #f2c94c;
+}
+
+/* Promo input styling */
+#promoCode {
+  margin-top: 8px;
+}
+
+/* Light mode biar jelas */
+body.light-mode #promoCode {
+  background: #f1f3f7;
+  color: #111;
+}
+
+    /* Biar klik SVG kerasa */
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button,
+    .lang-switch,
+    .menu-list li,
+    a,
+    .side-menu-box button {
+      will-change: transform;
+    }
+
+    #invoiceModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s ease;
+      z-index: 10000;
+    }
+
+    #invoiceModal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .invoice-box {
+      background: #131a2a;
+      width: 90%;
+      max-width: 400px;
+      padding: 20px;
+      border-radius: 18px;
+      transform: translateY(40px);
+      transition: 0.3s ease;
+    }
+
+    #invoiceModal.active .invoice-box {
+      transform: translateY(0);
+    }
+
+    .invoice-head {
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .invoice-head span {
+      display: block;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    .invoice-line {
+      height: 1px;
+      background: rgba(236, 0, 0, 0.2);
+      margin: 10px 0 15px;
+    }
+
+    .invoice-blue {
+      color: #4da6ff;
+      font-weight: 600;
+    }
+
+    .invoice-id {
+      color: #f7c948;
+      font-weight: 600;
+    }
+
+    .invoice-date {
+      color: #7bd88f;
+      font-weight: 500;
+    }
+
+    .invoice-actions {
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    /* FIX invoice light mode tanpa ganggu warna khusus */
+body.light-mode .invoice-box {
+  background: #131a2a;
+  color: #ffffff;
+}
+
+/* Putihin teks default aja */
+body.light-mode .invoice-box hr {
+  opacity: 0.3;
+}
+
+/*ALERT*/
+#toastAlert {
+  position: fixed;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4d4f;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  z-index: 9999;
+  transition: top 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+#toastAlert.show {
+  top: 20px;
+  opacity: 1;
+}
+
+/* Bikin toast kebal blur */
+#toastAlert {
+  position: fixed !important;
+  top: 20px;
+  right: 20px;
+  z-index: 999999 !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="logo.html" alt="Logo">
+      LIFJARZSTORE.ID
+      <span class="verified-badge">
+  <svg viewBox="0 0 24 24" width="16" height="16" style="margin-left: -5px; position: relative; top: 2px;">
+    <circle cx="12" cy="12" r="10" fill="#1DA1F2"/>
+    <path d="M9.5 12.5l1.8 1.8 3.7-4.3"
+          fill="none"
+          stroke="#fff"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+</span>
+    </div>
+    <div style="display:flex; gap:0px; align-items:center;">
+
+      <div class="lang-switch" onclick="toggleLangMenu()">
+        🌐 <span id="currentLang">ID</span>
+      </div>
+
+      <button class="btn-topup" onclick="openMenu()">Menu</button>
+    </div>
+
+  </header>
+
+  <!--ALERT-->
+  <div id="toastAlert"></div>
+
+  <!-- PopUp BAHASA -->
+  <div id="langPopup" class="lang-popup">
+    <div onclick="setLang('id')">🌏 Bahasa Indonesia</div>
+    <div onclick="setLang('en')">🌍 English</div>
+  </div>
+
+  <!-- Banner dengan video background -->
+  <section class="banner">
+    <video id="bannerVideo" autoplay loop muted>
+      <!-- GANTI DISINI: nama file video banner (contoh: banner.mp4) -->
+      <source src="anime.mp4" type="video/mp4">
+    </video>
+
+    <div class="banner-text">
+      <h1>RAMAIKAN RAMADHAN</h1>
+      <span>BANYAK PROMO MENARIK!</span>
+    </div>
+  </section>
+
+  <!-- Banner Slogan-->
+  <div class="info-alert">
+    <span class="fire">🔥</span>
+    <span class="glow-text">-STAY AMANAH CIHUYY-</span>
+    <span class="fire">🔥</span>
+  </div>
+
+  <!-- Banner Trusted -->
+  <div class="trust-box">
+    <div><span class="e1">⚡</span> Proses Cepat & Otomatis</div>
+    <div><span class="e2">🔒</span> Aman Tanpa Password</div>
+    <div><span class="e3">🎮</span> Dipercaya Banyak Player Roblox</div>
+    <div><span class="e4">💳</span> DANA • OVO • GOPAY • QRIS • ALL BANK</div>
+  </div>
+
+  <!-- Cara Order -->
+  <section id="caraOrder" class="cara-order">
+    <h2>Cara Order</h2>
+    <p>
+      1. Pilih produk yang ingin dibeli.<br>
+      2. Masukkan <b>Username Roblox</b> dan <b>Jumlah</b>.<br>
+      3. Klik <b>Order Sekarang</b>.<br>
+      4. Kamu akan diarahkan ke WhatsApp.<br>
+      5. Kirim pesan order dan tunggu konfirmasi dari admin.<br>
+      6. Setelah pembayaran, admin akan proses pesanan (max 1x24 jam).
+    </p>
+  </section>
+
+  <!-- BOOST LUCK -->
+  <section class="section" id="boostluck">
+    <h2 class="section-title boost-title">
+      <span class="boom">💥</span> BOOST LUCK 8x
+      <span class="best-glow">(BEST SELLER)</span>
+    </h2>
+    <div class="paket-list" style="grid-template-columns: repeat(3, 1fr);">
+
+      <div class="paket-item" onclick="openOrder('Boost Luck 6 Jam',110500)">
+        <div class="paket-icon">
+          <img src="logo.html" alt="Boost Luck">
+        </div>
+        <div class="paket-name">Boost Luck X8 - 6 Jam</div>
+        <div class="paket-price">
+          <s style="color:#888">Rp 122.800</s><br>
+          Rp 110.500 <span style="color:#36f4b8;font-size:.8rem;">-10%</span>
+        </div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Boost Luck 12 Jam',210500)">
+        <div class="paket-icon">
+          <img src="logo.html" alt="Boost Luck">
+        </div>
+        <div class="paket-name">Boost Luck X8 - 12 Jam</div>
+        <div class="paket-price">
+          <s style="color:#888">Rp 233.900</s><br>
+          Rp 210.500 <span style="color:#36f4b8;font-size:.8rem;">-10%</span>
+        </div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Boost Luck 24 Jam',385500)">
+        <div class="paket-icon">
+          <img src="logo.html" alt="Boost Luck">
+        </div>
+        <div class="paket-name">Boost Luck X8 - 24 Jam</div>
+        <div class="paket-price">
+          <s style="color:#888">Rp 428.300</s><br>
+          Rp 385.500 <span style="color:#36f4b8;font-size:.8rem;">-10%</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EVENT SECTION -->
+  <section class="kategori">
+    <h2 class="paket-title">
+      <img src="logo.html" alt="Event Icon">
+      EVENT ITEMS
+    </h2>
+
+    <div class="paket-list">
+
+      <div class="paket-item" onclick="openOrder('Ethernal Sword',76500)">
+        <div class="paket-icon"><img src="logo.html" alt="Icon"></div>
+        <div class="paket-name">Ethernal Sword</div>
+        <div class="paket-price">Rp. 76.500</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Ethernal Jetski',45000)">
+        <div class="paket-icon"><img src="logo.html" alt="Icon"></div>
+        <div class="paket-name">Ethernal Jetski</div>
+        <div class="paket-price">Rp. 45.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Crescendo Scythe',76500)">
+        <div class="paket-icon"><img src="logo.html" alt="Icon"></div>
+        <div class="paket-name">Crescendo Scythe</div>
+        <div class="paket-price">Rp. 76.500</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Crescendo Jetski',45000)">
+        <div class="paket-icon"><img src="logo.html" alt="Icon"></div>
+        <div class="paket-name">Crescendo Jetski</div>
+        <div class="paket-price">Rp. 45.000</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CRATE SECTION -->
+  <section class="kategori">
+    <h2 class="paket-title">
+      <img src="crate logo 2.html" alt="Crate Icon">
+      ALL CRATES
+    </h2>
+
+    <div class="paket-list">
+
+      <div class="paket-item" onclick="openOrder('Elderwood',10000)">
+        <div class="paket-icon"><img src="elderwood crate.html" alt="Icon"></div>
+        <div class="paket-name">Elderwood</div>
+        <div class="paket-price">Rp 10.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Luxury',10000)">
+        <div class="paket-icon"><img src="luxury crate.html" alt="Icon"></div>
+        <div class="paket-name">Luxury</div>
+        <div class="paket-price">Rp 10.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Enchanted',10000)">
+        <div class="paket-icon"><img src="enchanted crate.html" alt="Icon"></div>
+        <div class="paket-name">Enchanted</div>
+        <div class="paket-price">Rp 10.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Ocean',10000)">
+        <div class="paket-icon"><img src="ocean crate.html" alt="Icon"></div>
+        <div class="paket-name">Ocean</div>
+        <div class="paket-price">Rp 10.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Mystery',12000)">
+        <div class="paket-icon"><img src="mystery crate.html" alt="Icon"></div>
+        <div class="paket-name">Mystery</div>
+        <div class="paket-price">Rp 12.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Pirate',18000)">
+        <div class="paket-icon"><img src="pirate crate.html" alt="Icon"></div>
+        <div class="paket-name">Pirate</div>
+        <div class="paket-price">Rp 18.000</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GAMEPASS SECTION -->
+  <main id="produk">
+    <h2 class="paket-title">
+      <img src="logo gamepass 2.html" alt="Coin Icon">
+      ALL GAMEPASSES
+    </h2>
+
+    <div class="paket-list">
+      <div class="paket-item" onclick="openOrder('Mutations',25000)">
+        <div class="paket-icon"><img src="mutate.html" alt="Icon"></div>
+        <div class="paket-name">Mutations</div>
+        <div class="paket-price">Rp 25.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Sell Anywhere',28000)">
+        <div class="paket-icon"><img src="sell anywhere.html" alt="Icon"></div>
+        <div class="paket-name">Sell Anywhere</div>
+        <div class="paket-price">Rp 28.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Small Luck',8000)">
+        <div class="paket-icon"><img src="small luck.html" alt="Icon"></div>
+        <div class="paket-name">Small Luck</div>
+        <div class="paket-price">Rp 8.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Extra Luck',23000)">
+        <div class="paket-icon"><img src="Extra Luck.html" alt="Icon"></div>
+        <div class="paket-name">Extra Luck</div>
+        <div class="paket-price">Rp 23.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('VIP +',36000)">
+        <div class="paket-icon"><img src="VIP+.html" alt="Icon"></div>
+        <div class="paket-name">VIP +</div>
+        <div class="paket-price">Rp 36.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Double XP',20000)">
+        <div class="paket-icon"><img src="double xp.html" alt="Icon"></div>
+        <div class="paket-name">Double XP</div>
+        <div class="paket-price">Rp 20.000</div>
+      </div>
+      <div class="paket-item" onclick="openOrder('Advanced Luck',45000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Advanced Luck</div>
+        <div class="paket-price">Rp 45.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Hover Boat',20000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Hover Boat</div>
+        <div class="paket-price">Rp 20.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Hyper Boat',80000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Hyper Boat</div>
+        <div class="paket-price">Rp 80.000</div>
+      </div>
+  </main>
+
+  <!--IKAN SECRET-->
+  <section class="kategori">
+    <h2 class="paket-title">
+      <img src="logo.html" alt="Secret Icon">
+      IKAN SECRET
+    </h2>
+
+    <div class="paket-list ikan-secret-grid">
+
+      <div class="paket-item" onclick="openOrder('Ikan Secret Aurora',55000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Ikan Secret Aurora</div>
+        <div class="paket-price">Rp 55.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Ikan Secret Shadow',60000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Ikan Secret Shadow</div>
+        <div class="paket-price">Rp 60.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Ikan Secret Lava',65000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Ikan Secret Lava</div>
+        <div class="paket-price">Rp 65.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Ikan Secret Oceanic',58000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Ikan Secret Oceanic</div>
+        <div class="paket-price">Rp 58.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('Ikan Secret Phantom',70000)">
+        <div class="paket-icon"><img src="logo.html"></div>
+        <div class="paket-name">Ikan Secret Phantom</div>
+        <div class="paket-price">Rp 70.000</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROBUX SECTION -->
+  <section id="robux" style="margin:0 20px 30px;">
+
+    <h2 class="paket-title">
+      <img src="logo rbx.html">
+      TOP UP ROBUX
+    </h2>
+
+    <!-- VIA LOGIN -->
+    <div class="robux-subtitle">-> Robux Via Login</div>
+    <div class="robux-note">❗ Pending 10 menit – 1 jam</div>
+
+    <div class="robux-grid">
+
+      <div class="paket-item" onclick="openOrder('80 Robux Via Login',16900)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">80⏣ Robux</div>
+        <div class="paket-price">Rp 16.900</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('160 Robux Via Login',35800)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">160⏣ Robux</div>
+        <div class="paket-price">Rp 35.800</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('240 Robux Via Login',46700)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">240⏣ Robux</div>
+        <div class="paket-price">Rp 46.700</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('320 Robux Via Login',64600)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">320⏣ Robux</div>
+        <div class="paket-price">Rp 64.600</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('500 Robux Via Login',78500)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">500⏣ Robux</div>
+        <div class="paket-price">Rp 78.500</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('1000 Robux Via Login',149000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">1000⏣ Robux</div>
+        <div class="paket-price">Rp 149.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('2000 Robux Via Login',289000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">2000⏣ Robux</div>
+        <div class="paket-price">Rp 289.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('3000 Robux Via Login',435000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">3000⏣ Robux</div>
+        <div class="paket-price">Rp 435.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('4000 Robux Via Login',575000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">4000⏣ Robux</div>
+        <div class="paket-price">Rp 575.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('5000 Robux Via Login',720000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">5000⏣ Robux</div>
+        <div class="paket-price">Rp 720.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('10000 Robux Via Login',1420000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">10000⏣ Robux</div>
+        <div class="paket-price">Rp 1.420.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('20000 Robux Via Login',2830000)">
+        <div class="paket-icon"><img src="rbx biasa.html"></div>
+        <div class="paket-name">20000⏣ Robux</div>
+        <div class="paket-price">Rp 2.830.000</div>
+      </div>
+
+    </div>
+    <!-- VIA GAMEPASS AFTER TAX -->
+    <div class="robux-subtitle">-> Robux Via Gamepass (AFTER TAX)</div>
+    <div class="robux-note">❗ Pending 4–5 hari (BUKAN FAST)</div>
+
+    <div class="robux-grid-7">
+
+      <div class="paket-item" onclick="openOrder('80 Robux Via Gamepass',12700)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">80⏣ Robux</div>
+        <div class="paket-price">Rp 12.700</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('100 Robux Via Gamepass',15000)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">100⏣ Robux</div>
+        <div class="paket-price">Rp 15.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('200 Robux Via Gamepass',28000)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">200⏣ Robux</div>
+        <div class="paket-price">Rp 28.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('300 Robux Via Gamepass',40500)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">300⏣ Robux</div>
+        <div class="paket-price">Rp 40.500</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('400 Robux Via Gamepass',52500)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">400⏣ Robux</div>
+        <div class="paket-price">Rp 52.500</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('500 Robux Via Gamepass',66000)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">500⏣ Robux</div>
+        <div class="paket-price">Rp 66.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('1000 Robux Via Gamepass',130500)">
+        <div class="paket-icon"><img src="rbx pass.html"></div>
+        <div class="paket-name">1000⏣ Robux</div>
+        <div class="paket-price">Rp 130.500</div>
+      </div>
+
+    </div>
+    <!-- ROBUX PREMIUM -->
+    <div class="robux-subtitle">-> Robux Premium</div>
+    <div class="robux-note">❗ Pending 10 menit – 1 jam</div>
+    <div class="robux-grid-3">
+
+      <div class="paket-item" onclick="openOrder('450 Robux Premium',80000)">
+        <div class="paket-icon"><img src="rbx prem.html"></div>
+        <div class="paket-name">450 Premium</div>
+        <div class="paket-price">Rp 80.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('1000 Robux Premium',152000)">
+        <div class="paket-icon"><img src="rbx prem.html"></div>
+        <div class="paket-name">1000 Premium</div>
+        <div class="paket-price">Rp 152.000</div>
+      </div>
+
+      <div class="paket-item" onclick="openOrder('2200 Robux Premium',292000)">
+        <div class="paket-icon"><img src="rbx prem.html"></div>
+        <div class="paket-name">2200 Premium</div>
+        <div class="paket-price">Rp 292.000</div>
+      </div>
+
+    </div>
+
+  </section> <!-- PENUTUP topup robux 3mode -->
+
+  <!-- Testimoni -->
+  <section id="testimoni" class="testimoni">
+    <h2>Testimoni</h2>
+    <div class="avg-rating">⭐ 4.9/5 dari 120+ pembeli</div>
+    <div class="rating" id="rating">
+      <span onclick="setRating(1)">☆</span>
+      <span onclick="setRating(2)">☆</span>
+      <span onclick="setRating(3)">☆</span>
+      <span onclick="setRating(4)">☆</span>
+      <span onclick="setRating(5)">☆</span>
+    </div>
+
+    <div class="comment-box">
+      <input type="text" id="commentName" placeholder="Nama kamu..." required minlength="2" />
+      <textarea id="comment" placeholder="Tulis komentar kamu..."></textarea>
+      <button onclick="addComment()">Kirim Komentar</button>
+    </div>
+
+
+    <div class="comment-list" id="commentList"></div>
+  </section>
+
+  <!-- Tentang Kami -->
+  <section id="tentang" class="tentang">
+    <h2>Tentang Kami</h2>
+    <p>
+      LIFJARZSTORE.ID adalah toko digital yang menyediakan berbagai kebutuhan item & gamepass Fish It Roblox dengan
+      proses cepat dan aman.<br><br>
+
+      Kami berkomitmen memberikan pelayanan yang responsif, harga yang transparan, serta proses transaksi yang jelas
+      tanpa ribet.<br><br>
+
+      <span class="bold">Jam Operasional:</span>
+      <span style="color:#36a3ff; font-weight:600;">08.00 – 22.00</span> WIB<br>
+
+      <span class="bold">Estimasi Proses:</span>
+      <span style="color:#36a3ff; font-weight:600;">5–30 menit</span>
+      (tergantung antrian)<br>
+
+      <span class="bold">Garansi:</span>
+      <span style="color:#36a3ff; font-weight:600;">1x24 jam</span>
+      setelah pesanan dikonfirmasi (syarat & ketentuan berlaku)<br>
+
+      <span class="bold">Instagram:</span>
+      <span style="color:#36a3ff; font-weight:600;">@lifjarzhomiesstore1</span><br><br>
+
+      Terima kasih sudah mempercayakan kebutuhan game kamu kepada kami 🙌<br><br>
+
+    <div style="display:flex; gap:18px; justify-content:center; align-items:center; margin-top:15px;">
+
+      <!-- Bates WA -->
+      <a href="https://wa.me/6289685391751" target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366">
+          <path
+            d="M20.52 3.48A11.94 11.94 0 0012.07 0C5.4 0 0 5.4 0 12.07c0 2.13.56 4.22 1.63 6.06L0 24l6.1-1.6a12.07 12.07 0 005.97 1.53h.01c6.67 0 12.07-5.4 12.07-12.07 0-3.23-1.26-6.27-3.63-8.38zM12.07 21.8a9.73 9.73 0 01-4.96-1.36l-.35-.2-3.62.95.97-3.53-.23-.37a9.7 9.7 0 01-1.48-5.17c0-5.38 4.38-9.76 9.77-9.76 2.6 0 5.05 1.01 6.88 2.85a9.67 9.67 0 012.85 6.88c0 5.38-4.38 9.76-9.76 9.76zm5.37-7.32c-.29-.15-1.7-.84-1.96-.94-.26-.1-.45-.15-.64.15-.19.29-.74.94-.91 1.13-.17.19-.34.22-.63.07-.29-.15-1.22-.45-2.33-1.44-.86-.76-1.44-1.7-1.61-1.99-.17-.29-.02-.45.13-.6.14-.14.29-.34.43-.5.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.1-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.44 0 1.44 1.02 2.83 1.16 3.02.14.19 2 3.06 4.84 4.29.68.29 1.21.46 1.62.59.68.22 1.29.19 1.78.11.54-.08 1.7-.69 1.94-1.35.24-.66.24-1.22.17-1.35-.07-.12-.26-.19-.55-.34z" />
+        </svg>
+      </a>
+
+      <!-- BATES IG -->
+      <a href="https://instagram.com/lifjarzhomiesstore1" target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#E1306C">
+          <path
+            d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm4.25 5.5A4.75 4.75 0 1 0 16.75 12 4.76 4.76 0 0 0 12 7.5zm0 7.8A3.05 3.05 0 1 1 15.05 12 3.05 3.05 0 0 1 12 15.3zm5.2-8.9a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z" />
+        </svg>
+      </a>
+
+      <!-- BATES TikTok -->
+      <a href="https://www.tiktok.com/@kiplianaksmaa_" target="_blank" rel="noopener noreferrer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#ffffff">
+          <path
+            d="M12.5 2c.5 2.8 2.7 4.9 5.5 5.3v3.2c-1.7-.1-3.3-.7-4.6-1.8v6.1a5.8 5.8 0 11-5.8-5.8c.4 0 .8 0 1.2.1v3.3a2.5 2.5 0 102.5 2.5V2h1.2z" />
+        </svg>
+      </a>
+
+    </div>
+
+    <div style="text-align:center; margin-top:10px; font-size:.9rem;">
+      © 2024 LIFJARZSTORE.ID | All Rights Reserved.
+    </div>
+
+    </p>
+  </section>
+
+  <!-- INVOICE MODAL TARO DI SINI -->
+  <div id="invoiceModal">
+    <div class="invoice-box">
+
+      <h3 class="invoice-head">
+        LIFJARZSTORE.ID
+        <span>INVOICE</span>
+      </h3>
+
+      <div class="invoice-line"></div>
+
+      <div id="invoiceContent"></div>
+
+      <div class="invoice-actions">
+        <button class="order-btn" onclick="sendToWA()">Lanjut ke WhatsApp</button>
+        <button class="cancel-btn" onclick="backToOrder()">Kembali Ke Order</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Popup Order -->
+  <div class="order-modal" id="orderModal" onclick="closeOrder()">
+    <div class="order-box" onclick="event.stopPropagation()">
+      <h3 id="productName"></h3>
+      <p id="productPrice"></p>
+      <div class="popup-info">
+        <div>✅ Status: Ready</div>
+        <div>🕒 Proses: 5–30 menit</div>
+        <div>🛡️ Garansi: 1x24 Jam</div>
+        <small style="color: #ff3b3b;">
+  Pastikan username Roblox benar sebelum order!
+</small>
+
+      </div>
+      <input id="username" placeholder="Username Roblox">
+      <div id="passwordWrapper" style="display:none; position:relative; margin-top:2px;">
+        <input id="password" type="password" placeholder="Password Roblox">
+        <span id="eyeIcon" onclick="togglePassword()">
+          <svg id="eyeSvg" width="20" height="20" viewBox="0 0 24 24" fill="#aaa">
+            <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 11a4 4 0 110-8 4 4 0 010 8z" />
+          </svg>
+        </span>
+      </div>
+      <input id="qty" type="number" placeholder="Jumlah" min="1">
+      <input id="promoCode" type="text" placeholder="Masukan kode promo jika ada">
+      <button class="order-btn" id="orderBtn" onclick="orderNow()">Order Sekarang</button>
+      <button class="cancel-btn" onclick="closeOrder()">Batal</button>
+      <p style="font-size:.7rem;color:#aaa;margin-top:6px;">
+        Kami tidak pernah meminta password akun Roblox, Kecuali Top Up via login.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- Popup Menu -->
+  <div class="side-menu" id="sideMenu">
+    <div class="side-menu-box">
+      <div class="side-menu-header">
+        <h3>Menu</h3>
+        <button class="close-menu" onclick="closeMenu()">X</button>
+      </div>
+      <ul class="menu-list">
+        <li onclick="scrollToSection('home')">Home</li>
+        <li onclick="scrollToSection('produk')">Semua Produk</li>
+        <li onclick="scrollToSection('caraOrder')">Cara Order</li>
+        <li onclick="scrollToSection('testimoni')">Testimoni</li>
+        <li onclick="scrollToSection('tentang')">Tentang Kami</li>
+        <li style="border:none; cursor:default; padding-top:20px;">
+          <div style="font-weight:700; margin-bottom:8px;">🎨 Theme Mode</div>
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <button onclick="setTheme('dark')" style="padding:8px;border:none;border-radius:8px;cursor:pointer;">
+              🌙 Dark Mode
+            </button>
+            <button onclick="setTheme('light')" style="padding:8px;border:none;border-radius:8px;cursor:pointer;">
+              ☀ Light Mode
+            </button>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  <script>
+
+    /*Popup Order*/
+    let product = '', price = 0;
+    let currentRating = 0;
+    let ordering = false;
+
+    function openOrder(p, h) {
+      product = p;
+      price = h;
+
+      document.getElementById('productName').innerText = p;
+      document.getElementById('productPrice').innerText = 'Rp ' + h.toLocaleString();
+
+      const modal = document.getElementById('orderModal');
+      modal.classList.add('active');
+      const pwWrapper = document.getElementById('passwordWrapper');
+      const pwInput = document.getElementById('password');
+
+      if (p.toLowerCase().includes("via login")) {
+        pwWrapper.style.display = "block";
+      }
+      else {
+        pwWrapper.style.display = "none";
+        pwInput.value = "";
+      }
+
+    }
+
+    function closeOrder() {
+      const modal = document.getElementById('orderModal');
+      modal.classList.remove('active');
+    }
+
+    document.getElementById('orderModal')
+      .addEventListener('click', function (e) {
+        if (e.target.id === 'orderModal') {
+          closeOrder();
+        }
+      });
+
+    function orderNow() {
+
+      const btn = document.getElementById('orderBtn');
+      const user = document.getElementById('username').value.trim();
+      const qty = document.getElementById('qty').value;
+      const regex = /^[a-zA-Z0-9_]{3,20}$/;
+
+      if (!regex.test(user)) {
+        showToast("Username Roblox tidak valid!");
+        return;
+      }
+
+      if (!qty || qty < 1) {
+        showToast("Jumlah wajib diisi!");
+        return;
+      }
+
+      const pwField = document.getElementById('password');
+      let passwordText = "";
+
+      if (product.toLowerCase().includes("via login")) {
+        if (!pwField.value.trim()) {
+          showToast("Password wajib diisi untuk Via Login!");
+          return;
+        }
+        passwordText = `\nPassword Roblox: ${pwField.value}`;
+      }
+
+      if (ordering) return;
+      const promoInput = document.getElementById('promoCode').value.trim().toUpperCase();
+let discount = 0;
+
+if (promoInput) {
+  if (promoInput === "FEBRUARI") {
+    discount = 1000;
+  } else {
+    showToast("Kode promo sudah tidak valid!");
+    return;
+  }
+}
+      ordering = true;
+
+      btn.classList.add('loading');
+      btn.innerText = '⏳ Membuat Invoice...';
+      btn.disabled = true;
+      window.currentDiscount = discount;
+
+      setTimeout(() => {
+
+        if (generateInvoice()) {
+          closeOrder();
+          document.getElementById('invoiceModal').classList.add('active');
+        }
+
+        btn.classList.remove('loading');
+        btn.innerText = 'Order Sekarang';
+        btn.disabled = false;
+        ordering = false;
+
+      }, 1000);
+    }
+
+    /*INVOICE*/
+    function generateInvoice() {
+
+      const user = document.getElementById('username').value.trim();
+      const qty = parseInt(document.getElementById('qty').value);
+      const pwField = document.getElementById('password');
+
+      let passwordText = "";
+      let passwordDisplay = "-";
+
+      if (product.toLowerCase().includes("via login")) {
+        passwordText = `\nPassword Roblox: ${pwField.value}`;
+        passwordDisplay = pwField.value;
+      }
+
+      const subtotal = price * qty;
+const discount = window.currentDiscount || 0;
+const total = subtotal - discount;
+
+
+      const now = new Date();
+      const tanggal = now.toLocaleDateString("id-ID", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      });
+
+      const randomID = "INV-" + Math.floor(10000 + Math.random() * 90000);
+
+      const invoiceHTML = `
+    <b>ID :</b> <span class="invoice-id">${randomID}</span><br>
+    <b>Tanggal :</b> <span class="invoice-date">${tanggal}</span><br>
+    <hr>
+    <b>Produk :</b> ${product}<br>
+    <b>Username :</b> ${user}<br>
+    <b>Password :</b> ${passwordDisplay}<br>
+    <b>Jumlah :</b> <span class="invoice-blue">${qty}</span><br>
+    ${discount > 0 ? `<b>Diskon :</b> - Rp <span class="invoice-blue">${discount.toLocaleString()}</span><br>` : ''}
+    <b>Total :</b> Rp <span class="invoice-blue">${total.toLocaleString()}</span><br>
+    <hr>
+    <b>Status :</b> ⏱ Menunggu Pembayaran
+  `;
+
+      document.getElementById('invoiceContent').innerHTML = invoiceHTML;
+
+      window.currentOrderData = {
+        user,
+        qty,
+        total,
+        passwordText,
+        randomID,
+        tanggal
+      };
+
+      return true;
+    }
+
+    function sendToWA() {
+
+      const data = window.currentOrderData;
+
+      const msg = `Halo admin LifjarzStore.ID 👋
+Saya mau order:
+-------------------------------------------
+ID Invoice: ${data.randomID}
+Tanggal: ${data.tanggal}
+-------------------------------------------
+Produk: ${product}
+Jumlah: ${data.qty}
+Total: Rp ${data.total.toLocaleString()}
+Username Roblox: ${data.user}${data.passwordText}`;
+
+      window.open(`https://wa.me/6289685391751?text=${encodeURIComponent(msg)}`);
+
+      closeInvoice();
+    }
+
+    function closeInvoice() {
+      document.getElementById('invoiceModal').classList.remove('active');
+    }
+
+    function backToOrder() {
+  document.getElementById('invoiceModal').classList.remove('active');
+  document.getElementById('orderModal').classList.add('active');
+}
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      const invoiceModal = document.getElementById('invoiceModal');
+
+      if (invoiceModal) {
+        invoiceModal.addEventListener('click', function (e) {
+
+          const box = document.querySelector('.invoice-box');
+
+          if (!box.contains(e.target)) {
+            closeInvoice();
+          }
+
+        });
+      }
+
+    });
+
+    /*PW BOX*/
+    function togglePassword() {
+      const pw = document.getElementById('password');
+      const eye = document.getElementById('eyeSvg');
+
+      pw.type = pw.type === "password" ? "text" : "password";
+
+      eye.classList.add("blink");
+
+      setTimeout(() => {
+        eye.classList.remove("blink");
+      }, 250);
+    }
+
+    /* Popup Menu */
+    function openMenu() {
+      const menu = document.getElementById('sideMenu');
+      menu.style.display = 'flex';
+
+      setTimeout(() => {
+        menu.classList.add('active');
+        document.body.classList.add('menu-open');
+      }, 10);
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById('sideMenu');
+      menu.classList.remove('active');
+      document.body.classList.remove('menu-open');
+
+      setTimeout(() => {
+        menu.style.display = 'none';
+      }, 300);
+    }
+
+    document.getElementById('sideMenu').addEventListener('click', function (e) {
+      if (e.target.id === 'sideMenu') {
+        closeMenu();
+      }
+    });
+
+
+    function scrollToSection(id) {
+      closeMenu();
+
+      if (id === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      else if (id === 'produk') {
+        document.getElementById('boostluck').scrollIntoView({ behavior: 'smooth' });
+      }
+      else {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+
+    /* Rating & Komentar */
+    let currentLang = "id";
+    function setRating(n) {
+      currentRating = n;
+      const stars = document.querySelectorAll('#rating span');
+      stars.forEach((s, i) => s.innerText = (i < n) ? '★' : '☆');
+    }
+
+    function addComment() {
+      const name = document.getElementById('commentName').value.trim();
+      const comment = document.getElementById('comment').value.trim();
+
+      if (name.length < 2) {
+        showToast("Nama minimal 2 huruf!\n(Name must be at least 2 characters!)");
+        return;
+      }
+
+      if (currentRating === 0) {
+        showToast("Pilih rating bintang dulu!\n(Please select a rating first!)");
+        return;
+      }
+
+      const list = document.getElementById('commentList');
+      const div = document.createElement('div');
+      div.className = 'comment-item';
+
+      div.innerHTML = `
+    <div><b>${name}</b> (<span class="stars-gold">${'★'.repeat(currentRating)}</span>)</div>
+    ${comment ? `<div>"${comment}"</div>` : ''}
+  `;
+
+      list.prepend(div);
+
+      document.getElementById('commentName').value = '';
+      document.getElementById('comment').value = '';
+      setRating(0);
+    }
+
+    /*Emoji Gerak Banner Trust*/
+    const emojis1 = ["⚡", "🚀", "🔥", "💨"];
+    const emojis2 = ["🔒", "🛡", "✅", "✔"];
+    const emojis3 = ["🎮", "🏆", "⭐", "💯"];
+    const emojis4 = ["💳", "💰", "🏦", "📲"];
+
+    function changeEmoji(el, list) {
+      el.classList.add("emoji-anim");
+
+      setTimeout(() => {
+        el.innerText = list[Math.floor(Math.random() * list.length)];
+        el.classList.remove("emoji-anim");
+      }, 200);
+    }
+
+    setInterval(() => {
+      const e1 = document.querySelector(".e1");
+      const e2 = document.querySelector(".e2");
+      const e3 = document.querySelector(".e3");
+      const e4 = document.querySelector(".e4");
+
+      if (e1) changeEmoji(e1, emojis1);
+      if (e2) changeEmoji(e2, emojis2);
+      if (e3) changeEmoji(e3, emojis3);
+      if (e4) changeEmoji(e4, emojis4);
+
+    }, 2000);
+
+    /* Popup BAHASA*/
+    function toggleLangMenu() {
+      const p = document.getElementById("langPopup");
+      p.style.display = p.style.display === "block" ? "none" : "block";
+    }
+
+    function setLang(lang) {
+      localStorage.setItem("lang", lang); // simpan pilihan
+      applyLang(lang);
+      document.getElementById("langPopup").style.display = "none";
+      currentLang = lang;
+    }
+    window.addEventListener("load", () => {
+      const savedLang = localStorage.getItem("lang") || "id";
+      applyLang(savedLang);
+    });
+
+    document.addEventListener("click", function (e) {
+      const popup = document.getElementById("langPopup");
+      const button = document.querySelector(".lang-switch");
+
+      if (
+        popup.style.display === "block" &&
+        !popup.contains(e.target) &&
+        !button.contains(e.target)
+      ) {
+        popup.style.display = "none";
+      }
+    });
+
+    /*BAHASA*/
+    function applyLang(lang) {
+
+      const t = {
+        id: {
+          bannerTitle: "RAMAIKAN RAMADHAN",
+          bannerSub: "BANYAK PROMO MENARIK!",
+
+          caraOrder: "Cara Order",
+          caraSteps: `1. Pilih produk yang ingin dibeli.<br>
+2. Masukkan <b>Username Roblox</b> dan <b>Jumlah</b>.<br>
+3. Klik <b>Order Sekarang</b>.<br>
+4. Kamu akan diarahkan ke WhatsApp.<br>
+5. Kirim pesan order dan tunggu konfirmasi dari admin.<br>
+6. Setelah pembayaran, admin akan proses pesanan (max 1x24 jam).`,
+
+          trust1: "⚡ Proses Cepat & Otomatis",
+          trust2: "🔒 Aman Tanpa Password",
+          trust3: "🎮 Dipercaya Banyak Player Roblox",
+          trust4: "💳 DANA • OVO • GOPAY • QRIS • ALL BANK",
+
+          slogan: "🔥 -STAY AMANAH CIHUYY- 🔥",
+
+          testimoni: "Testimoni",
+          avgRating: "⭐ 4.9/5 dari 120+ pembeli",
+          send: "Kirim Komentar",
+          namePh: "Nama kamu...",
+          commentPh: "Tulis komentar kamu...",
+
+          tentang: "Tentang Kami",
+
+          menu1: "Home",
+          menu2: "Semua Produk",
+          menu3: "Cara Order",
+          menu4: "Testimoni",
+          menu5: "Tentang Kami"
+        },
+
+        en: {
+          bannerTitle: "RAMADHAN SPECIAL PROMO",
+          bannerSub: "LOTS OF SPECIAL DEALS!",
+
+          caraOrder: "How to Order",
+          caraSteps: `1. Choose the product you want.<br>
+2. Enter your <b>Roblox Username</b> and <b>Quantity</b>.<br>
+3. Click <b>Order Now</b>.<br>
+4. You will be redirected to WhatsApp.<br>
+5. Send the order message and wait for admin confirmation.<br>
+6. After payment, admin will process your order (max 24 hours).`,
+
+          trust1: "⚡ Fast & Automatic Process",
+          trust2: "🔒 Safe Without Password",
+          trust3: "🎮 Trusted by Roblox Players",
+          trust4: "💳 DANA • OVO • GOPAY • QRIS • ALL BANK",
+
+          slogan: "🔥 -TRUSTED STORE CIHUYY- 🔥",
+
+          testimoni: "Testimonials",
+          avgRating: "⭐ 4.9/5 from 120+ buyers",
+          send: "Send Review",
+          namePh: "Your name...",
+          commentPh: "Write your review...",
+
+          tentang: "About Us",
+
+          menu1: "Home",
+          menu2: "All Products",
+          menu3: "How to Order",
+          menu4: "Testimonials",
+          menu5: "About Us"
+        }
+      };
+
+
+      document.getElementById("currentLang").innerText = lang.toUpperCase();
+
+      // Banner
+      document.querySelector(".banner-text h1").innerText = t[lang].bannerTitle;
+      document.querySelector(".banner-text span").innerText = t[lang].bannerSub;
+
+      // Slogan
+      const sloganText = document.querySelector(".glow-text");
+      if (sloganText) {
+        sloganText.innerText = t[lang].slogan
+          .replace("🔥", "")
+          .replace("🔥", "")
+          .trim();
+      }
+
+      // Trust Box
+      const trustItems = document.querySelectorAll(".trust-box div");
+
+      if (trustItems.length >= 4) {
+
+        if (trustItems[0].childNodes[1])
+          trustItems[0].childNodes[1].nodeValue = " " + t[lang].trust1.split(" ").slice(1).join(" ");
+
+        if (trustItems[1].childNodes[1])
+          trustItems[1].childNodes[1].nodeValue = " " + t[lang].trust2.split(" ").slice(1).join(" ");
+
+        if (trustItems[2].childNodes[1])
+          trustItems[2].childNodes[1].nodeValue = " " + t[lang].trust3.split(" ").slice(1).join(" ");
+
+        if (trustItems[3].childNodes[1])
+          trustItems[3].childNodes[1].nodeValue = " " + t[lang].trust4.split(" ").slice(1).join(" ");
+      }
+
+      // Cara Order
+      document.querySelector("#caraOrder h2").innerHTML = t[lang].caraOrder;
+      document.querySelector("#caraOrder p").innerHTML = t[lang].caraSteps;
+
+      // Testimoni
+      document.querySelector("#testimoni h2").innerText = t[lang].testimoni;
+      document.querySelector(".avg-rating").innerText = t[lang].avgRating;
+      document.querySelector(".comment-box button").innerText = t[lang].send;
+      document.getElementById("commentName").placeholder = t[lang].namePh;
+      document.getElementById("comment").placeholder = t[lang].commentPh;
+
+      // Tentang
+      document.querySelector("#tentang h2").innerText = t[lang].tentang;
+
+      // Menu
+      const menu = document.querySelectorAll(".menu-list li");
+      menu[0].innerText = t[lang].menu1;
+      menu[1].innerText = t[lang].menu2;
+      menu[2].innerText = t[lang].menu3;
+      menu[3].innerText = t[lang].menu4;
+      menu[4].innerText = t[lang].menu5;
+    }
+
+    /*Urutan Harga*/
+    function sortAllProducts() {
+      const containers = document.querySelectorAll('.paket-list, .robux-grid, .robux-grid-7, .robux-grid-3');
+
+      containers.forEach(container => {
+        const items = Array.from(container.querySelectorAll('.paket-item'));
+
+        items.sort((a, b) => {
+          const priceA = parseInt(a.getAttribute('onclick').match(/,\s*(\d+)/)[1]);
+          const priceB = parseInt(b.getAttribute('onclick').match(/,\s*(\d+)/)[1]);
+          return priceA - priceB;
+        });
+
+        items.forEach(item => container.appendChild(item));
+      });
+    }
+
+    window.addEventListener("load", () => {
+      setTimeout(sortAllProducts, 200);
+    });
+
+    /* ===== THEME MODE ===== */
+    function setTheme(mode) {
+
+      document.body.style.transition = "opacity 0.2s ease";
+      document.body.style.opacity = "0.85";
+
+      setTimeout(() => {
+
+        if (mode === 'light') {
+          document.body.classList.add('light-mode');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.body.classList.remove('light-mode');
+          localStorage.setItem('theme', 'dark');
+        }
+
+        document.body.style.opacity = "1";
+
+      }, 150);
+
+      closeMenu();
+    }
+
+    window.addEventListener("load", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+
+    function showToast(message) {
+  const toast = document.getElementById("toastAlert");
+  toast.innerText = message;
+
+  // Paksa jadi anak langsung body biar gak ikut blur
+  document.body.appendChild(toast);
+
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
+
+  </script>
+
+</body>
+
+</html>
